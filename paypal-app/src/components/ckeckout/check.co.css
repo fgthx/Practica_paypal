@@ -1,0 +1,155 @@
+:host {
+  --bg-top: #fff4e8;
+  --bg-bottom: #f2f6ff;
+  --ink: #1a2235;
+  --muted: #5e677d;
+  --card: #ffffffcc;
+  --accent: #0e6fff;
+  --accent-dark: #064cc2;
+  --good: #0f8c4f;
+  --warn: #c1431e;
+  display: block;
+  min-height: 100dvh;
+  font-family: "Space Grotesk", "Segoe UI", sans-serif;
+  color: var(--ink);
+}
+
+.checkout-page {
+  min-height: 100dvh;
+  padding: 2rem clamp(1rem, 4vw, 3rem) 3rem;
+  background:
+    radial-gradient(circle at 10% 10%, #ffd8bf 0, transparent 32%),
+    radial-gradient(circle at 90% 0%, #d7e8ff 0, transparent 35%),
+    linear-gradient(160deg, var(--bg-top), var(--bg-bottom));
+}
+
+.hero {
+  max-width: 720px;
+  margin-bottom: 1.75rem;
+  animation: rise 500ms ease;
+}
+
+.kicker {
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: var(--accent-dark);
+}
+
+h1 {
+  margin: 0.2rem 0 0.7rem;
+  font-size: clamp(1.8rem, 4vw, 3rem);
+}
+
+.subtitle {
+  color: var(--muted);
+  line-height: 1.55;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 1rem;
+}
+
+.card {
+  border: 1px solid #ffffff;
+  border-radius: 16px;
+  padding: 1rem;
+  background: var(--card);
+  backdrop-filter: blur(6px);
+  box-shadow: 0 8px 26px #091d4b14;
+  animation: rise 600ms ease;
+}
+
+.card.active {
+  border-color: var(--accent);
+  box-shadow: 0 10px 34px #0e6fff2d;
+}
+
+.card h2 {
+  margin: 0 0 0.5rem;
+  font-size: 1.15rem;
+}
+
+.card p {
+  margin: 0 0 1rem;
+  color: var(--muted);
+  min-height: 2.8em;
+}
+
+.meta {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.9rem;
+}
+
+.price {
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+.stock {
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
+button {
+  width: 100%;
+  border: 0;
+  border-radius: 10px;
+  padding: 0.75rem;
+  font-weight: 700;
+  color: #fff;
+  background: linear-gradient(90deg, var(--accent), #00a0ff);
+  cursor: pointer;
+  transition: transform 180ms ease;
+}
+
+button:hover {
+  transform: translateY(-2px);
+}
+
+.payment-panel {
+  margin-top: 1.4rem;
+  background: #ffffffde;
+  border-radius: 16px;
+  border: 1px solid #fff;
+  padding: 1rem;
+}
+
+.payment-panel h3 {
+  margin-top: 0;
+}
+
+.status {
+  border-radius: 10px;
+  padding: 0.7rem;
+  margin: 0 0 1rem;
+}
+
+.info {
+  background: #e8f1ff;
+  color: #19408d;
+}
+
+.success {
+  background: #e3f8ea;
+  color: var(--good);
+}
+
+.error {
+  background: #ffe8e2;
+  color: var(--warn);
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

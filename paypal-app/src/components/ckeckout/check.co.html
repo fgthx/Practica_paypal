@@ -1,0 +1,36 @@
+<main class="checkout-page">
+	<section class="hero">
+		<p class="kicker">Tienda Demo</p>
+		<h1>Compra con PayPal Sandbox</h1>
+		<p class="subtitle">
+			Productos cargados desde la base <strong>tienda</strong>. El pago se crea y captura con la API de PayPal.
+		</p>
+		<p class="subtitle">Estado tecnico: {{ debugMessage() }}</p>
+	</section>
+
+	@if (loading()) {
+		<p class="status info">Cargando productos...</p>
+	} @else {
+		<section class="grid">
+			@for (product of products(); track product.id) {
+				<article class="card" [class.active]="selectedProduct()?.id === product.id">
+					<h2>{{ product.name }}</h2>
+					<p>{{ product.description }}</p>
+					<div class="meta">
+						<span class="price">{{ product.price | currency:'MXN':'symbol':'1.2-2' }}</span>
+						<span class="stock">Stock: {{ product.stock }}</span>
+					</div>
+					<button type="button" (click)="selectProduct(product)">Comprar este</button>
+				</article>
+			}
+		</section>
+
+		<section class="payment-panel">
+			<h3>Finalizar compra</h3>
+			<p class="status" [class.info]="statusType() === 'info'" [class.success]="statusType() === 'success'" [class.error]="statusType() === 'error'">
+				{{ statusMessage() }}
+			</p>
+			<div id="paypal-button-container"></div>
+		</section>
+	}
+</main>
